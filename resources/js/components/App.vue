@@ -1,14 +1,18 @@
 <template>
-    <div>
-        <h2>Starat</h2>
+    <div class="flex flex-col flex-1 h-screen overflow-y-hidden w-full">
+        <Nav/>
         <router-view></router-view>
     </div>
 
 </template>
 
 <script>
+    import Nav from "./Nav";
     export default {
-        name: "App"
+        name: "App",
+        components: {
+            Nav
+        }
     }
 </script>
 
