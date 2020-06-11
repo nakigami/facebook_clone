@@ -11,7 +11,7 @@ class PostController extends Controller
     // Retrieve all posts using PostCollection
     public function index()
     {
-        return new PostCollection( Post::all() );
+        return new PostCollection( request()->user()->posts );
     }
 
     // Store one Post item
