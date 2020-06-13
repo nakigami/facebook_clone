@@ -2195,9 +2195,10 @@ __webpack_require__.r(__webpack_exports__);
       _this.posts = res.data;
     })["catch"](function (err) {
       console.log(err.message);
-    });
-    setInterval(function () {
-      _this.loading = false;
+    })["finally"](function () {
+      setInterval(function () {
+        _this.loading = false;
+      });
     });
   }
 });

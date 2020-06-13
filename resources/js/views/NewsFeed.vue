@@ -28,10 +28,13 @@
                 })
                 .catch(err => {
                     console.log(err.message)
-                });
-            setInterval(() => {
-                this.loading = false
+                })
+                .finally(()=>{
+                    setInterval(() => {
+                        this.loading = false
+                    });
             });
+
         }
 
     }
