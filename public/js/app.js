@@ -38089,7 +38089,9 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-sm text-gray-500" }, [_vm._v("12 mins")])
+          _c("p", { staticClass: "text-sm text-gray-500" }, [
+            _vm._v(_vm._s(_vm.post.data.attributes.posted_at))
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -38097,7 +38099,14 @@ var render = function() {
         _vm._v("\n        " + _vm._s(_vm.post.data.attributes.body) + "\n    ")
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm.post.data.attributes.image
+        ? _c("div", { staticClass: "w-full" }, [
+            _c("img", {
+              staticClass: "overflow-hidden ",
+              attrs: { src: _vm.post.data.attributes.image }
+            })
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-between px-6 mt-2" }, [
         _c("div", { staticClass: "flex items-center text-gray-600" }, [
@@ -38201,20 +38210,6 @@ var staticRenderFns = [
       _c("img", {
         staticClass: "w-8 h-8 rounded-full object-cover",
         attrs: { src: "https://avatarfiles.alphacoders.com/759/75944.jpg" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full" }, [
-      _c("img", {
-        staticClass: "overflow-hidden ",
-        attrs: {
-          src:
-            "https://www.numerama.com/content/uploads/2020/03/corona-4901880_1920.jpg"
-        }
       })
     ])
   }

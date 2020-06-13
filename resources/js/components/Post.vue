@@ -6,14 +6,14 @@
         </div>
         <div class="ml-4">
             <p class="font-bold text-sm">{{ post.data.attributes.posted_by.data.attributes.name }}</p>
-            <p class="text-sm text-gray-500">12 mins</p>
+            <p class="text-sm text-gray-500">{{ post.data.attributes.posted_at }}</p>
         </div>
     </div>
     <p class="pl-4 pb-2">
         {{ post.data.attributes.body }}
     </p>
-    <div class="w-full">
-        <img src="https://www.numerama.com/content/uploads/2020/03/corona-4901880_1920.jpg" class="overflow-hidden "/>
+    <div class="w-full" v-if="post.data.attributes.image">
+        <img :src="post.data.attributes.image" class="overflow-hidden "/>
     </div>
     <div class="flex justify-between px-6 mt-2">
         <div class="flex items-center text-gray-600">
