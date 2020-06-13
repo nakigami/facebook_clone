@@ -5,12 +5,12 @@
             <img src="https://avatarfiles.alphacoders.com/759/75944.jpg" class="w-8 h-8 rounded-full object-cover"/>
         </div>
         <div class="ml-4">
-            <p class="font-bold text-sm">Anas Riani</p>
+            <p class="font-bold text-sm">{{ post.data.attributes.posted_by.data.attributes.name }}</p>
             <p class="text-sm text-gray-500">12 mins</p>
         </div>
     </div>
     <p class="pl-4 pb-2">
-        I hope that we'll be back to our normal life ASAP !
+        {{ post.data.attributes.body }}
     </p>
     <div class="w-full">
         <img src="https://www.numerama.com/content/uploads/2020/03/corona-4901880_1920.jpg" class="overflow-hidden "/>
@@ -66,7 +66,10 @@
 
 <script>
     export default {
-        name: "Post"
+        name: "Post",
+        props: [
+            'post'
+        ]
     }
 </script>
 

@@ -2123,7 +2123,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Post"
+  name: "Post",
+  props: ['post']
 });
 
 /***/ }),
@@ -2174,6 +2175,20 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Post: _components_Post__WEBPACK_IMPORTED_MODULE_1__["default"],
     NewPost: _components_NewPost__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      posts: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/posts').then(function (res) {
+      _this.posts = res.data;
+    })["catch"](function (err) {
+      return console.log(err.message);
+    });
   }
 });
 
@@ -38064,12 +38079,22 @@ var render = function() {
     "div",
     { staticClass: "mt-6 bg-white w-2/3 flex flex-col  shadow" },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "flex items-center p-4" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "ml-4" }, [
+          _c("p", { staticClass: "font-bold text-sm" }, [
+            _vm._v(
+              _vm._s(_vm.post.data.attributes.posted_by.data.attributes.name)
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-sm text-gray-500" }, [_vm._v("12 mins")])
+        ])
+      ]),
       _vm._v(" "),
       _c("p", { staticClass: "pl-4 pb-2" }, [
-        _vm._v(
-          "\n        I hope that we'll be back to our normal life ASAP !\n    "
-        )
+        _vm._v("\n        " + _vm._s(_vm.post.data.attributes.body) + "\n    ")
       ]),
       _vm._v(" "),
       _vm._m(1),
@@ -38172,19 +38197,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex items-center p-4" }, [
-      _c("div", [
-        _c("img", {
-          staticClass: "w-8 h-8 rounded-full object-cover",
-          attrs: { src: "https://avatarfiles.alphacoders.com/759/75944.jpg" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "ml-4" }, [
-        _c("p", { staticClass: "font-bold text-sm" }, [_vm._v("Anas Riani")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-sm text-gray-500" }, [_vm._v("12 mins")])
-      ])
+    return _c("div", [
+      _c("img", {
+        staticClass: "w-8 h-8 rounded-full object-cover",
+        attrs: { src: "https://avatarfiles.alphacoders.com/759/75944.jpg" }
+      })
     ])
   },
   function() {
@@ -38259,8 +38276,14 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "flex flex-col items-center py-4" },
-    [_c("NewPost"), _vm._v(" "), _c("Post")],
-    1
+    [
+      _c("NewPost"),
+      _vm._v(" "),
+      _vm._l(_vm.posts.data, function(post) {
+        return _c("Post", { key: post.data.post_id, attrs: { post: post } })
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
