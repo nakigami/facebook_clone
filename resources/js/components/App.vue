@@ -4,7 +4,7 @@
         <div class="flex overflow-y-hidden flex-1">
             <Sidebar />
             <div class="w-2/3 overflow-x-hidden">
-                <NewsFeed />
+                <router-view/>
             </div>
         </div>
     </div>
@@ -15,12 +15,14 @@
     import Nav from "./Nav";
     import Sidebar from "./Sidebar";
     import NewsFeed from "../views/NewsFeed";
+    import Show from '../views/users/Show';
     export default {
         name: "App",
         components: {
             NewsFeed,
             Nav,
-            Sidebar
+            Sidebar,
+            Show
         }
     }
 </script>
