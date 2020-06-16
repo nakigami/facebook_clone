@@ -8,10 +8,16 @@ export default new VueRouter({
     mode:'history',
     routes: [
         {
-            path:'/', name: 'home', component: NewsFeed
+            path:'/', name: 'home', component: NewsFeed,
+            meta: {
+                title: 'News Feed'
+            }
         },
         {
-            path:'/users/:userid', name: 'user.show', component: UserShow
+            path:'/users/:userid', name: 'user.show', component: UserShow,
+            meta: {
+                title: 'Profile'
+            }
         }
     ]
 })

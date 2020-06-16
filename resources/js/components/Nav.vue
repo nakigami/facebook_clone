@@ -29,9 +29,10 @@
                         .9-.3 1.1-.7.3-.5.2-1-.2-1.3zm-2.5-8h-4.3l5 4.5V3.6c0-.3-.3-.6-.7-.6z"/>
                     </svg>
                 </router-link>
-                <router-link to="/" class="pl-5 pr-5 border-b-2 border-white h-full flex items-center">
+                <router-link v-if="getLoadingState === false" :to="'/users/' + getUser.data.user_id" class="pl-5 pr-5 border-b-2 border-white h-full flex items-center">
                     <img src="https://avatarfiles.alphacoders.com/759/75944.jpg" class="w-8 h-8 rounded-full object-cover"/>
                 </router-link>
+                <ClipLoader v-else />
                 <router-link to="/" class="pl-5 pr-5 border-b-2 border-white h-full flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current w-5 h-5">
                         <path d="M.5 11.6c0 3.4 1.7 6.3 4.3 8.3V24l3.9-2.1c1 .3 2.2.4 3.3.4 6.4 0 11.5-4.8 11.5-10.7C23.5 5.8
@@ -56,8 +57,21 @@
 </template>
 
 <script>
+ import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
+ import {mapGetters} from 'vuex';
+
     export default {
-        name: "Nav"
+        name: "Nav",
+        data() {
+            return {}
+        },
+        components : {ClipLoader},
+        computed: {
+            ...mapGetters({
+                getUser: 'getUser',
+                getLoadingState: 'getLoadingState'
+            })
+        }
     }
 </script>
 

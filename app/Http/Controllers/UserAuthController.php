@@ -10,6 +10,6 @@ class UserAuthController extends Controller
 {
     public function show()
     {
-        return new User(Auth::user());
+        return new User(auth()->user());
     }
 }
