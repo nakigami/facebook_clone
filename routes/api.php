@@ -9,6 +9,7 @@ Route::middleware('auth:api')->group(function(){
         '/posts' => 'PostController',
         '/users' => 'UserController',
         '/users/{user}/posts' => 'UserPostsController',
+        'friend-request' => 'FriendRequestController'
     ]);
 
 });
